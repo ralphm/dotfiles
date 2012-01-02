@@ -3,10 +3,12 @@ set nocompatible
 let &termencoding = &encoding
 set encoding=utf-8
 
-"if has("python")
-py import sys,os; sys.path.append(os.path.expanduser("~/.vim/"))
-py import vindect
-"endif
+if has("python")
+  py import sys,os; sys.path.append(os.path.expanduser("~/.vim/"))
+  py import vindect
+else
+  let b:did_pyflakes_plugin=1
+endif
 
 let python_highlight_all=1
 let ifold_show_text=1
