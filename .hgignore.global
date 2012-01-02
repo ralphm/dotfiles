@@ -1,0 +1,9 @@
+syntax: glob
+
+*.pyc
+*~
+.svn
+_trial_temp
+.bzr
+.*.swp
+twisted/plugins/dropin.cache
