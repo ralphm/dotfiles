@@ -7,13 +7,13 @@
 " Bugfixes: Jean-Pierre Chauvel
 
 
-if exists("b:did_ftplugin")
+if exists("b:did_python_ifold_plugin")
     finish
 endif
-let b:did_ftplugin = 1 
+let b:did_python_ifold_plugin = 1 
 
 if !exists("g:ifold_mode")
-    let g:ifold_mode = 1
+    let g:ifold_mode = 2
 endif
 
 map <buffer> f :call ToggleFold()<CR> 
@@ -23,17 +23,19 @@ let w:signature = 0
 let w:is_folded = 1
 
 function! PythonFoldText()
-    let line = getline(v:foldstart)
-    let nnum = nextnonblank(v:foldstart + 1)
+    let nnum = nextnonblank(v:foldstart)
     let nextline = getline(nnum)
     if nextline =~ '^\s\+"""$'
-        let line = line . getline(nnum + 1)
+        let nextline = getline(nnum + 1)
+        let line = matchstr(nextline, '^\s*\zs.\{-}\ze\("""\)\?$')
     elseif nextline =~ '^\s\+"""'
-        let line = line . ' ' . matchstr(nextline, '"""\zs.\{-}\ze\("""\)\?$')
+        let line = matchstr(nextline, '"""\zs.\{-}\ze\("""\)\?$')
     elseif nextline =~ '^\s\+"[^"]\+"$'
-        let line = line . ' ' . matchstr(nextline, '"\zs.*\ze"')
+        let line = matchstr(nextline, '"\zs.*\ze"')
     elseif nextline =~ '^\s\+pass\s*$'
-        let line = line . ' pass'
+        let line = 'pass'
+    else
+        let line = nextline
     endif
     let size = 1 + v:foldend - v:foldstart
     if size < 10
