@@ -31,6 +31,7 @@ set listchars=tab:>-,trail:-
 set switchbuf=useopen,split
 set wildmenu
 set wildmode=list:longest,full
+set colorcolumn=+1	" Show vertical bar at textwidth+1
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
