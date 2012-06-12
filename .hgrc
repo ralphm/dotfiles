@@ -93,6 +93,8 @@ hgext.rebase =
 hgext.purge =
 hgext.transplant =
 
+progress=
+
 ### --- hgk additional configuration
 
 [hgk]
@@ -161,4 +163,7 @@ cmd.vimdiff = vim
 opts.vimdiff = -f '+next' '+execute "DirDiff" argv(0) argv(1)'
 
 [alias]
-qmeld = extdiff -p meld -cqtip
+qmeld = extdiff -p meld -r-2
+
+[diff]
+git = True
