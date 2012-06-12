@@ -15,6 +15,8 @@ ignore = ~/.hgignore.global
 
 merge = meld
 
+style = ~/.hgmap-cmdline
+
 ### --- Extensions
 
 [extensions]
@@ -94,6 +96,7 @@ hgext.purge =
 hgext.transplant =
 
 progress=
+spaceindent = ~/.hgext/spaceindent.py
 
 ### --- hgk additional configuration
 
