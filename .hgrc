@@ -88,8 +88,8 @@ hgext.churn =
 # hgext.win32text =
 
 hgext.bookmarks =
-hggit =
-hgext.hgsubversion =
+hgext.git =
+hgsubversion =
 
 hgext.rebase =
 hgext.purge =
