@@ -96,3 +96,4 @@ imap <buffer> ,li <li></li><ESC>bba
 "imap <buffer> ,kw <keyword></keyword><esc>bba
 
 imap <buffer> ,sl <div class="slide"><CR><h1></h1><CR></div><ESC>k$bba
+imap <buffer> ,se <section><CR><h2></h2><CR></section><ESC>k$bba
