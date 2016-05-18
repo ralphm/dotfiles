@@ -1,0 +1,8 @@
+[user]
+	name = Ralph Meijer
+	email = ralphm@ik.nu
+
+[alias]
+	meld = !/home/ralphm/bin/git-meld.pl
+[push]
+	default = current
