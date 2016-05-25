@@ -1,0 +1,14 @@
+*.pyc
+*~
+.svn
+_trial_temp
+.bzr
+.*.swp
+twisted/plugins/dropin.cache
+.coverage
+doc/_build
+twistd.log
+twistd.pid
+build
+dist
+*.egg-info
