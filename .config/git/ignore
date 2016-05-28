@@ -3,6 +3,7 @@
 .svn
 _trial_temp
 .bzr
+.hg
 .*.swp
 twisted/plugins/dropin.cache
 .coverage
