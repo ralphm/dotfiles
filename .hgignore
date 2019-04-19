@@ -1,4 +1,5 @@
 syntax: regexp
 
 ^(?!(\.vim))
+.vim/.netrwhist
 

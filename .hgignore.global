@@ -8,3 +8,5 @@ _trial_temp
 .git
 .*.swp
 twisted/plugins/dropin.cache
+*.orig
+*.rej

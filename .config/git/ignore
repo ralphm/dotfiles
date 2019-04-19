@@ -13,3 +13,5 @@ twistd.pid
 build
 dist
 *.egg-info
+*.rej
+*.orig
