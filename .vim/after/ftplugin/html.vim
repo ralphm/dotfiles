@@ -1,9 +1,3 @@
-
-if exists("b:did_ftplugin")
-    finish
-endif
-let b:did_ftplugin = 1 
-
 imap <buffer> ,pp <lt>p></p><esc>bba
 
 " header and setup info

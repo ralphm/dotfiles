@@ -7,15 +7,12 @@ set nocompatible
 let &termencoding = &encoding
 set encoding=utf-8
 
-if has("python")
-  py import sys,os; sys.path.append(os.path.expanduser("~/.vim/"))
-  py import vindect
-else
-  let b:did_pyflakes_plugin=1
+if has("python3")
+  py3 import sys,os; sys.path.append(os.path.expanduser("~/.vim/"))
+  py3 import vindect
 endif
 
 let python_highlight_all=1
-let ifold_show_text=1
 
 set smarttab
 
@@ -108,5 +105,16 @@ endif
 let g:debianfullname="Ralph Meijer"
 let g:debianemail="ralphm@ik.nu"
 
-" disable python_ifold for now
-let b:did_python_ifold_plugin = 1 
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
+let g:ale_keep_list_window_open = 1
+
+packadd! matchit
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL

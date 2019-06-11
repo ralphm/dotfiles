@@ -34,19 +34,13 @@ example setup:
     if has("python")
       py import sys,os; sys.path.append(os.path.expanduser("~/.vim/"))
       py import vindect
-      "if you want different defaults: py vindect.setDefaults(...)
+      "if you want different defaults: py3 vindect.setDefaults(...)
     endif
 
-  3) in ~/.vim/mysyntax.vim:
-    if has("python")
-      au Syntax python py vindect.detect() 
-      au Syntax cpp py vindect.detect()
-      au Syntax c py vindect.detect()
-      au Syntax java py vindect.detect(preferred='space')
-	  "...etc...
+  3) e.g. in ~/.vim/after/java.vim:
+    if has("python3")
+      py3 vindect.detect(preferred='space')
     endif
-
-(See :help mysyntaxfile for detailed info)
 
 Also note that if you have autocmd filetype matches elsewhere, in order to
 avoid potential conflicts you may wish to remove any setting of tabstop,
@@ -55,9 +49,11 @@ want to keep the autocmd to set cindent/smartindent/etc appropriatly)
 
 """
 
+from __future__ import print_function
+
 __version__ = "1.0"
 
-import vim, re, os
+import vim, re
 
 def setDefaults(indent=None, shiftwidth=None, maxlines=None, verbose=None):
 	"""set default settings to use for detect()"""
@@ -83,7 +79,8 @@ def detect(preferred=None, preferredsw=None, force=None, forcesw=None, maxlines=
 	verbose -- print detection info 0=none, 1=std, 2=extra
 	"""
 	b = vim.current.buffer
-	if verbose>0: print 'vindect:',
+	if verbose and verbose > 0:
+	    print('vindect:', end="")
 
 	if not preferred: preferred = _def_indent
 	if not preferredsw: preferredsw = _def_sw
@@ -125,7 +122,6 @@ def detect(preferred=None, preferredsw=None, force=None, forcesw=None, maxlines=
 		sw_str = '()'
 	else:
 		indents=[0]*513
-		ire = re.compile('[ \t]+\S')
 		prev = 0
 		for i in range(0, min(maxlines, len(b))):
 			l = b[i]
@@ -148,21 +144,23 @@ def detect(preferred=None, preferredsw=None, force=None, forcesw=None, maxlines=
 		maxpt = max(map(pref, indents, range(0, 513)))
 		preferredsw = maxpt[2]
 		if verbose>0:
-			total = reduce(lambda x,y: x+y, indents)
+			total = sum(indents)
+			if not total and not maxpt[0]:
+				total = 1
 			sw_str = '(%5.2f%%)'%(maxpt[0]/float(total)*100)
 			if verbose>1:
-				sw_str = sw_str+' '+`filter(lambda p: p[1]>0, map(None, range(0,513), indents))`
+				sw_str = sw_str+' '+repr(filter(lambda p: p[1]>0, map(None, range(0,513), indents)))
 
 	vim.command('syn match indentError "fooo"') #create a silly thing so that the clear can't fail
 	vim.command('syn clear indentError')
 
 	if dosyntax and not vim.eval('&syntax'):
-		print '(syntax not on)',
+		print('(syntax not on)', end="")
 		dosyntax=0
 
 	settings={
-		'tab':  (r'"^\s* \+"',  'tabstop=%i'%preferredsw),# shiftround'),
-		'mix':  (r'"^ \+\t\+"', 'smarttab'),
+		'tab':	(r'"^\s* \+"',	'tabstop=%i'%preferredsw),# shiftround'),
+		'mix':	(r'"^ \+\t\+"', 'smarttab'),
 		'space':(r'"^\s*\t\+"', 'tabstop=%i expandtab'%preferredsw),
 	}[preferred]
 	if dosyntax:
@@ -173,7 +171,7 @@ def detect(preferred=None, preferredsw=None, force=None, forcesw=None, maxlines=
 		vim.command('set tabstop=8 shiftwidth=%s softtabstop=0 nosmarttab noexpandtab '%preferredsw + settings[1])
 
 	#if verbose>0: print preferred, force and '(forced)' or '(s=%s, t=%s, m=%s(%+i), e=%s)'%(spc,tab,mix,mspc,err)
-	if verbose>0: print preferred, ind_str, 'sw=%i'%preferredsw, sw_str
+	if verbose>0: print(preferred, ind_str, 'sw=%i'%preferredsw, sw_str)
 	return preferred
 
 # todo:

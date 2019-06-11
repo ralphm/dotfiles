@@ -1,9 +1,3 @@
-
-if exists("b:did_ftplugin")
-    finish
-endif
-let b:did_ftplugin = 1 
-
 " ABBREVIATIONS
 " some abbreviations that I was using for DocBook characters.
 " These have to be typed separated by whitespace and are replaced
