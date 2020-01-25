@@ -171,6 +171,10 @@ bindsym $mod+y border pixel 3
 # use neither window title nor border
 bindsym $mod+u border none
 
+for_window [class="Gnome-terminal"] border normal 0
+for_window [class="Firefox"] border normal 0
+for_window [class="Thunderbird"] border normal 0
+
 # resize window (you can also use the mouse for that)
 mode "Resize Mode" {
         # These bindings trigger as soon as you enter the resize mode
