@@ -93,6 +93,9 @@ bindsym $mod+Control+Down move workspace to output down
 bindsym $mod+Control+Up move workspace to output up
 bindsym $mod+Control+Right move workspace to output right
 
+bindsym $mod+Control+1 [class=".*"] move workspace to output DP-1
+bindsym $mod+Control+2 [class=".*"] move workspace to output DP-2
+
 # toggle split orientation
 bindsym $mod+BackSpace split toggle
 
