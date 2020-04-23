@@ -22,7 +22,6 @@ hgext.rebase =
 hgext.transplant =
 
 hgsubversion =
-prompt =  ~/.hgext/hg-prompt/prompt.py
 spaceindent = ~/.hgext/spaceindent.py
 
 [convert]
