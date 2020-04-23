@@ -5,5 +5,5 @@
   <option name="enable_application_indicator_support" value="true"/>
   <!-- valid options are 'appindicator', 'systray' and 'chooser' -->
   <option name="gui_engine" value="appindicator"/>
-  <option name="active_plugins"><item>Notifications</item><item>Gnome Media Keys</item></option>
+  <option name="active_plugins"><item>Gnome Media Keys</item></option>
 <option name="last_station" value="Radio Veronica"/></config>
