@@ -4,5 +4,9 @@
 
 [alias]
 	meld = !/home/ralphm/bin/git-meld.pl
+
 [push]
 	default = current
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
