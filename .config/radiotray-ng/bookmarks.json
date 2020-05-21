@@ -1,0 +1,33 @@
+[
+    {
+        "group": "root",
+        "image": "",
+        "stations": [
+            {
+                "name": "Radio Veronica",
+                "image": "",
+                "url": "http://playerservices.streamtheworld.com/api/livestream-redirect/VERONICA.mp3"
+            },
+            {
+                "name": "538",
+                "image": "",
+                "url": "http://82.201.100.9:8000/radio538"
+            },
+            {
+                "name": "Q-Music",
+                "image": "",
+                "url": "http://vip2.str.reasonnet.com/qmusic.mp3.96"
+            },
+            {
+                "name": "Radio 2",
+                "image": "",
+                "url": "http://icecast.omroep.nl/radio2-bb-mp3"
+            },
+            {
+                "name": "Sky Radio",
+                "image": "",
+                "url": "http://playerservices.streamtheworld.com/api/livestream-redirect/SKYRADIO"
+            }
+        ]
+    }
+]
