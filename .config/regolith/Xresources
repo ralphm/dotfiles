@@ -1,0 +1,8 @@
+i3-wm.gaps.focus_follows_mouse: yes
+i3-wm.bar.trayoutput: primary
+rofi-theme: /etc/regolith/styles/ubuntu/rofi.rasi
+gnome.gtk.theme: Yaru
+gnome.wm.theme: Yaru
+gnome.icon.theme: Yaru
+i3xrocks.weather.location: Veldhoven
+i3xrocks.weather.format: 4
