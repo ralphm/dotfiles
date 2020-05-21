@@ -11,7 +11,7 @@
 BLOCKSIZE=K;	export BLOCKSIZE
 EDITOR=vim;	export EDITOR
 PAGER=less;	export PAGER
-LESS=LRX;	export LESS
+LESS=RX;	export LESS
 # make mail(1) happy:
 crt=24;		export crt
 
