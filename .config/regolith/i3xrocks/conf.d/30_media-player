@@ -2,4 +2,5 @@
 #
 # Displays media controls
 [media-player]
+command=/home/ralphm/.local/share/i3xrocks/media-player
 interval=5
