@@ -32,7 +32,7 @@ from i3ipc import Connection, Event
 
 
 def value_span(value):
-    return f'<span font_desc="{value_font}" color = "{value_color}" > {value} </span>'
+    return f'<span font_desc="{value_font}" color = "{value_color}" > {html.escape(value)} </span>'
 
 
 parser = argparse.ArgumentParser(
