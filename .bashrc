@@ -116,8 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# alias ls="ls -F"
-# set -o vi
+alias ls="${BASH_ALIASES[ls]:-ls} -v --group-directories-first"
+set -o vi
 
 # Hi, mutt!
 export COLORFGBG="default;default"
