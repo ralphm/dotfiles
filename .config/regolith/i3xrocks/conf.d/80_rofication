@@ -2,5 +2,5 @@
 #
 # Displays notifications.
 [rofication]
-command=rofication-status
+command=/usr/bin/rofication-status
 interval=10

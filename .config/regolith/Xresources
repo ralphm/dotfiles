@@ -1,3 +1,5 @@
+i3-wm.bar.position: bottom
+i3-wm.bar.font: pango:Source Code Pro Medium 13
 i3-wm.gaps.focus_follows_mouse: yes
 i3-wm.bar.trayoutput: primary
 rofi-theme: /etc/regolith/styles/ubuntu/rofi.rasi
