@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Radio Tray
-Terminal=false
-Exec=radiotray
-Icon=radiotray
-Type=Application
-Categories=AudioVideo;Audio;Player;GTK;
-X-GNOME-Autostart-enabled=true

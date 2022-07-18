@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Network
+Comment=Manage your network connections
+Icon=nm-device-wireless
+Exec=nm-applet
+Terminal=false
+Type=Application
+NoDisplay=true
+OnlyShowIn=GNOME-Flashback;
+X-GNOME-UsesNotifications=true
+X-Ubuntu-Gettext-Domain=nm-applet

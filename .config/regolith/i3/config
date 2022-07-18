@@ -24,7 +24,7 @@
 # i3-wm.bar.position: top
 #
 # Reload i3 after making Xresource changes.  Learn more at
-# https://regolith-linux.org/docs/howto/override-xres/
+# https://regolith-linux.org/docs/howtos/override-xres/
 #
 ###############################################################################
 #
@@ -97,7 +97,7 @@ bindsym $mod+$i3-wm.binding.terminal exec /usr/bin/x-terminal-emulator
 set_from_resource $i3-wm.binding.browser i3-wm.binding.browser Shift+Return
 bindsym $mod+$i3-wm.binding.browser exec gtk-launch $(xdg-settings get default-web-browser)
 
-set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/ubuntu/rofi.rasi
+set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/lascaille/rofi.rasi
 
 ## Launch // Application // <> Space ##
 set_from_resource $i3-wm.binding.launcher.app i3-wm.binding.launcher.app space
@@ -351,6 +351,10 @@ floating_modifier $mod
 set_from_resource $i3-wm.hide.edge.borders i3-wm.hide.edge.borders smart
 hide_edge_borders $i3-wm.hide.edge.borders
 
+# Set the default layout mode
+set_from_resource $i3-wm.workspace.layout i3-wm.workspace.layout default
+workspace_layout $i3-wm.workspace.layout
+
 ###############################################################################
 # Session Management
 ###############################################################################
@@ -425,6 +429,11 @@ set_from_resource $i3-wm.binding.bluetooth i3-wm.binding.bluetooth b
 set_from_resource $i3-wm.program.bluetooth i3-wm.program.bluetooth gnome-control-center --class=floating_window bluetooth
 bindsym $mod+$i3-wm.binding.bluetooth exec $i3-wm.program.bluetooth
 
+## Modify // Sound Settings // <> s ##
+set_from_resource $i3-wm.binding.sound i3-wm.binding.sound s
+set_from_resource $i3-wm.program.sound i3-wm.program.sound gnome-control-center --class=floating_window sound
+bindsym $mod+$i3-wm.binding.sound exec $i3-wm.program.sound
+
 ## Launch // File Browser // <><Shift> n ##
 set_from_resource $i3-wm.binding.files i3-wm.binding.files Shift+n
 set_from_resource $i3-wm.program.files i3-wm.program.files /usr/bin/nautilus --new-window
@@ -454,11 +463,10 @@ bindsym $mod+$i3-wm.binding.bar_toggle bar mode toggle
 
 # Cause Settings app to float above tiled windows
 floating_maximum_size -1 x -1
-# for_window [class="Gnome-control-center"] floating enable
 for_window [class="floating_window"] floating enable
 
 for_window [class="Gnome-terminal"] border normal 0
-for_window [class="Firefox"] border normal 0
+for_window [class="(?i)Firefox"] border normal 0
 for_window [class="Thunderbird"] border normal 0
 
 set_from_resource $i3-wm.workspace.auto_back_and_forth i3-wm.workspace.auto_back_and_forth no
@@ -666,7 +674,7 @@ exec --no-startup-id $i3-wm.program.nm-applet
 
 # User programs from Xresources
 # To use, define an Xresource key i3-wm.program.[1-3] with the value of the program to launch.
-# See https://regolith-linux.org/docs/howto/override-xres/ for details.
+# See https://regolith-linux.org/docs/howtos/override-xres/ for details.
 set_from_resource $i3-wm.program.1 i3-wm.program.1 :
 exec --no-startup-id $i3-wm.program.1
 set_from_resource $i3-wm.program.2 i3-wm.program.2 :
