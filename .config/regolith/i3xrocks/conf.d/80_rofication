@@ -1,6 +1,0 @@
-# Rofication
-#
-# Displays notifications.
-[rofication]
-command=/usr/bin/rofication-status
-interval=10

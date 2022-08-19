@@ -1,6 +1,0 @@
-# Battery indicator
-#
-# Displays combined percentage charge left of all batteries.
-[battery]
-command=/home/ralphm/.local/share/i3xrocks/battery
-interval=10

@@ -1,6 +1,5 @@
 # Show title of focused window
 [focused-window-name]
-command=/home/ralphm/.local/share/i3xrocks/focused-window-name
 # Uncomment to show an icon
 label=
 interval=1
