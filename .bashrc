@@ -125,11 +125,5 @@ export COLORTERM="yes"
 
 
 # export PYTHONWARNINGS="default"
-export GRIN_ARGS="--skip-dirs CVS,RCS,.svn,.hg,.bzr,build,dist,coverage"
 
-grinl()
-{
-  grin --force-color "$@" | less -R
-}
-
-#combinator
+eval "$(thefuck --alias)"
