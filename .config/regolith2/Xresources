@@ -2,9 +2,11 @@ i3-wm.bar.position: bottom
 i3-wm.bar.font: pango:Source Code Pro Medium 13
 i3-wm.gaps.focus_follows_mouse: yes
 i3-wm.bar.trayoutput: primary
-gnome.gtk.theme: Yaru
-gnome.wm.theme: Yaru
-gnome.icon.theme: Yaru
+gtk.theme_name: Yaru
+gtk.icon_theme_name: Yaru
+gtk.font_name: Ubuntu 11
+gtk.monospace_font_name: BitstreamVeraSansMono Nerd Font 11
+gnome.terminal.font: BitstreamVeraSansMono Nerd Font 11
 i3xrocks.weather.location: Veldhoven
 i3xrocks.weather.format: 4
 regolith.look.path: /usr/share/regolith-look/default
