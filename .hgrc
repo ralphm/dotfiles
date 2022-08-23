@@ -12,7 +12,7 @@ interface = curses
 hgext.churn =
 hgext.convert=
 hgext.extdiff =
-hgext.git =
+hgext.git = ~/.local/lib/python3.10/site-packages/hggit
 hgext.graphlog =
 hgext.hgk =
 hgext.mq =
@@ -21,7 +21,6 @@ hgext.purge =
 hgext.rebase =
 hgext.transplant =
 
-hgsubversion =
 spaceindent = ~/.hgext/spaceindent.py
 
 [convert]
@@ -42,3 +41,6 @@ crecord = commit -i
 
 [diff]
 git = True
+
+[color]
+status.ignored = magenta
