@@ -19,6 +19,7 @@ set listchars=tab:>-,trail:-
 set switchbuf=useopen,split
 set wildmode=list:longest,full
 set colorcolumn=+1	" Show vertical bar at textwidth+1
+set modeline
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
@@ -70,6 +71,25 @@ let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_open_list = 1
 let g:ale_keep_list_window_open = 1
+let g:ale_python_auto_virtualenv = 1
+let g:ale_completion_enabled = 1
+
+if has("autocmd")
+	function ALELSPMappings()
+		let l:lsp_found=0
+		for l:linter in ale#linter#Get(&filetype) | if !empty(l:linter.lsp) | let l:lsp_found=1 | endif | endfor
+		if (l:lsp_found)
+			nnoremap <buffer> <C-]> :ALEGoToDefinition<CR>
+			nnoremap <buffer> <C-^> :ALEFindReferences<CR>
+		else
+			silent! unmap <buffer> <C-]>
+			silent! unmap <buffer> <C-^>
+		endif
+	endfunction
+	autocmd BufRead,FileType * call ALELSPMappings()
+endif " has("autocmd")
+
+let g:markdown_fenced_languages = ['apache', 'bash', 'go', 'html', 'py=python', 'python', 'js=javascript', 'json', 'yaml']
 
 " Load all plugins now.
 " Plugins need to be added to runtimepath before helptags can be generated.
