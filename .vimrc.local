@@ -126,3 +126,8 @@ endfunction
 hi DiffChange guibg=DarkMagenta
 hi DiffAdd guibg=DarkBlue
 hi DiffDelete guibg=DarkCyan
+
+" Fix window resize in kitty: vim's GPM fallback disables SIGWINCH.
+if $TERM == 'xterm-kitty'
+  set ttymouse=sgr
+endif
