@@ -1,6 +1,15 @@
 # vim plugin-versions manifest — 2026-09-11
 # plugin dir: git commit (date)
 #
+# Regenerate after every PlugUpdate:
+#   for d in ~/.vim/plugged/*; do
+#     echo "$(basename "$d") $(git -C "$d" rev-parse HEAD) \
+#           ($(git -C "$d" log -1 --format=%ad --date=short))"
+#   done
+#
+# fzf lives outside the plug dir (see Plug 'junegunn/fzf', { 'dir': '~/.fzf' })
+# and is appended manually with the same git commands run in ~/.fzf.
+#
 ale                          e1789bc54483d76ac9ddb40b633d1645c8281914 (2026-08-21)
 black                        20622e1259c29bda81831962ace1348ba1921c84 (2026-09-04)
 coverage-highlight.vim       2b7371e852ae362090262c78e2cb1233ecfbd73e (2025-02-05)

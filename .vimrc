@@ -1,6 +1,10 @@
 " vimrc — hand-rolled, replaces the generated vim-bootstrap config (2026-09-11).
-" Plugin versions are recorded in ~/.vim/plugin-versions and reproducible via
-" ~/.vim/plug.snapshot.vim (see :PlugSnapshot).
+" Plugin versions are recorded in ~/.vim/plugin-versions (regenerate with the
+" commands in that file's header) and reproducible via ~/.vim/plug.snapshot.vim.
+"   Snapshot: vim -es --cmd 'set nocompatible' -u ~/.vimrc \
+"              -c 'PlugSnapshot! ~/.vim/plug.snapshot.vim' -c 'qa!'
+"   Restore:  vim -S ~/.vim/plug.snapshot.vim
+
 
 let &termencoding = &encoding
 set encoding=utf-8
