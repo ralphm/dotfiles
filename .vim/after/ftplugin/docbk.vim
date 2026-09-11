@@ -116,8 +116,8 @@ imap <buffer> ,f2 <foil><CR><title></title><CR><CR><para></para><CR><CR><BS><BS>
 imap <buffer> ,fg <foilgroup><CR><title></title><CR><CR>,f2<CR><CR><BS><BS></foilgroup><esc>kkkkkkkkk$bba
 
 " macros for weblog entries
-imap <buffer> ,tm <CR><esc>k:r! date +\%H:\%M:\%S\%z<CR>$hi:<esc>kJxJxa
-imap <buffer> ,da <CR><esc>k:r! date +\%Y-\%m-\%d<CR>kJxJxa
+imap <buffer> ,tm <CR><esc>k:r! date +\%H:\%M:\%S\%z<CR>$hi:<esc>kJxJa
+imap <buffer> ,da <CR><esc>k:r! date +\%Y-\%m-\%d<CR>kJxJa
 imap <buffer> ,xst <story id="" time=",tm"><CR><storyinfo><CR><title></title><CR><subtitle></subtitle><CR><CR><abstract><CR><para></para><CR></abstract><CR><CR><keywordset><CR></keywordset><CR></storyinfo><CR><CR><para></para><CR><CR></story>
 imap <buffer> ,st ,xst<esc>kk$bba
 imap <buffer> ,dy <day date=",da"><CR><CR>,xst<CR><CR></day><esc>kkkk$bba

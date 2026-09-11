@@ -3,6 +3,7 @@
 # verbose = True
 username = Ralph Meijer <ralphm@ik.nu>
 ignore = ~/.hgignore.global
+ignore.vim = ~/.hgignore.vim
 merge = meld
 #style = ~/.hgmap-cmdline
 interface = curses
@@ -12,7 +13,7 @@ interface = curses
 hgext.churn =
 hgext.convert=
 hgext.extdiff =
-hgext.git = ~/.local/lib/python3.10/site-packages/hggit
+hgext.git = ~/.local/lib/python3.11/site-packages/hggit
 hgext.graphlog =
 hgext.hgk =
 hgext.mq =

@@ -1,0 +1,128 @@
+set history=1000   " keep 200 lines of command line history
+"set showcmd    " display incomplete commands
+
+" Show @@@ in the last line if it is truncated.
+set display=truncate
+
+set scrolloff=5
+
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+" Revert with ":iunmap <C-U>".
+inoremap <C-U> <C-G>u<C-U>
+
+"" Remember cursor position
+"" This overrides vim bootstrap to exclude commit messages
+augroup vimrc-remember-cursor-position
+  autocmd!
+  autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit' |   exe "normal! g`\"" | endif
+augroup END
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+" Revert with: ":delcommand DiffOrig".
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
+endif
+
+set smarttab
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+set switchbuf=useopen,split
+"set wildmode=list:longest,full
+set colorcolumn=+1  " Show vertical bar at textwidth+1
+
+" Delete comment character when joining commented lines.
+set formatoptions+=j
+
+" Saving options in session and view files causes more problems than it
+" solves, so disable it.
+set sessionoptions-=options
+set viewoptions-=options
+
+" For all text files set 'textwidth' to 78 characters.
+autocmd FileType text setlocal textwidth=78
+
+augroup filetype
+au BufNewFile,BufRead *.inc   set ft=php
+au BufNewFile,BufRead *.ihtml set ft=html
+au BufNewFile,BufRead *.tac   set ft=python
+au BufNewFile,BufRead *.tpl   set ft=html
+augroup END
+
+" Correctly highlight $() and other modern affordances in filetype=sh.
+if !exists('g:is_posix') && !exists('g:is_bash') && !exists('g:is_kornshell') && !exists('g:is_dash')
+  let g:is_posix = 1
+endif
+
+" The matchit plugin makes the % command work better, but it is not backwards
+" compatible.
+" The ! means the package won't be loaded right away but when plugins are
+" loaded during initialization.
+packadd! matchit
+
+let g:debianfullname="Ralph Meijer"
+let g:debianemail="ralphm@ik.nu"
+
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
+let g:ale_keep_list_window_open = 1
+let g:ale_python_auto_virtualenv = 1
+let g:ale_completion_enabled = 1
+
+if has("autocmd")
+  function ALELSPMappings()
+    let l:lsp_found=0
+    for l:linter in ale#linter#Get(&filetype) | if !empty(l:linter.lsp) | let l:lsp_found=1 | endif | endfor
+    if (l:lsp_found)
+      nnoremap <buffer> <C-]> :ALEGoToDefinition<CR>
+      nnoremap <buffer> <C-^> :ALEFindReferences<CR>
+    else
+      silent! unmap <buffer> <C-]>
+      silent! unmap <buffer> <C-^>
+    endif
+  endfunction
+  autocmd BufRead,FileType * call ALELSPMappings()
+endif " has("autocmd")
+
+let g:markdown_fenced_languages = ['apache', 'bash', 'go', 'html', 'py=python', 'python', 'js=javascript', 'json', 'yaml']
+
+set background=dark
+if (has("termguicolors"))
+  set termguicolors
+endif
+"let g:ayucolor="mirage"
+"colorscheme ayu
+colorscheme dracula
+let g:airline_theme='dracula'
+set guifont=Monospace\ 11
+
+let g:airline_powerline_fonts = 1
+
+" Also clear the search highlight and update the diff when clearing the screen
+nnoremap <c-l> :nohlsearch<cr>:diffupdate<cr><c-l>
+
+function! g:CoiledSnakeConfigureFold(fold)
+    let a:fold.min_lines = 1
+
+    if get(a:fold.parent, 'type', '') == ''
+        let a:fold.num_blanks_below = 2
+    endif
+
+    " Only fold imports if there are at least 3 of them.
+    elseif a:fold.type == 'import'
+        let a:fold.min_lines = 3
+    endif
+
+    " If the whole program is shorter than 30 lines, don't fold
+    " anything.
+    if line('$') < 30
+        let a:fold.ignore = 1
+    endif
+
+endfunction
+
+hi DiffChange guibg=DarkMagenta
+hi DiffAdd guibg=DarkBlue
+hi DiffDelete guibg=DarkCyan
