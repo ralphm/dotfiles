@@ -66,7 +66,7 @@ let g:debianemail="ralphm@ik.nu"
 
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
-let g:ale_open_list = 1
+let g:ale_open_list = 0
 let g:ale_keep_list_window_open = 1
 let g:ale_python_auto_virtualenv = 1
 let g:ale_completion_enabled = 1
@@ -131,3 +131,10 @@ hi DiffDelete guibg=DarkCyan
 if $TERM == 'xterm-kitty'
   set ttymouse=sgr
 endif
+
+" Improve typing responsiveness: repaint only when pausing, snappier Esc.
+set lazyredraw
+set ttimeoutlen=50
+
+" Don't auto-start jedi-vim's completion engine on Python files.
+let g:jedi#completions_enabled = 0
