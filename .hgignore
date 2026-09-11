@@ -1,7 +1,15 @@
 syntax: regexp
 
-#^(?!(\.vim))
-.vim/.netrwhist
-.vim/pack/git-plugins
-.viminfo
+# This dotfiles repo has the home directory as its root, so in order to keep
+# `hg status` usable we ignore everything except the tracked files and
+# directories listed below.  Any new file that should be tracked needs a
+# matching exception here (or `hg add -f <file>`).
 
+# Directories (kept, plus everything below them):
+#   .config  .hgext  .vim  bin
+# Selected dot files (exact names):
+#   .bash_aliases .bashrc .gitconfig .gvimrc .hgmap-cmdline .hgrc
+#   .hgignore .hgignore.global .hgignore.vim .ignore .pam_environment
+#   .profile .vimrc
+
+^(?!\.config(/|$)|\.hgext(/|$)|\.vim(/|$)|bin(/|$)|\.bash_aliases$|\.bashrc$|\.gitconfig$|\.gvimrc$|\.hgmap-cmdline$|\.hgrc$|\.hgignore$|\.hgignore\.global$|\.hgignore\.vim$|\.ignore$|\.pam_environment$|\.profile$|\.vimrc$)
