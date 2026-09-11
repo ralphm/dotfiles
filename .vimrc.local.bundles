@@ -11,7 +11,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'wannesm/wmgraphviz.vim'
 
 "Plug 'Luxed/ayu-vim'
-Plug 'dracula/vim', { 'name': 'dracula' }
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-abolish'
